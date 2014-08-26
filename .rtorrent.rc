@@ -1,0 +1,38 @@
+# default download directory and session settings
+directory = ~/Downloads/T/
+session = ~/.rtorrent
+# up|down
+download_rate = 0
+upload_rate = 10
+# peer limits
+min_peers = 10
+max_peers = 550
+min_peers_seed = 10
+max_peers_seed = 550
+# ram limits
+max_memory_usage = 1800M
+network.xmlrpc.size_limit = 2M
+# sort views by creation date
+view.sort_new = main,less=d.creation_date=
+view.sort_current = main,less=d.creation_date=
+# close torrents when disk space below 2,5G
+schedule = low_diskspace,5,60,close_low_diskspace=2500M
+# auto torrent directories
+schedule = anime_torrent,10,10,"load.start=~/Downloads/T/torrent/*.torrent,d.directory.set=~/Downloads/T/seed"
+#
+# Other settings below
+#
+# general network
+max_uploads = 84
+port_range = 49165-49165
+port_random = no
+# general protocol
+dht = auto
+dht_port = 6882
+protocol.pex.set = yes
+trackers.use_udp.set = yes
+# general other
+encryption = allow_incoming,try_outgoing,enable_retry
+check_hash = no
+# Preallocate files; reduces defragmentation on filesystems.
+system.file.allocate.set = yes
