@@ -78,9 +78,9 @@ Bundle "t9md/vim-choosewin"
 Bundle "terryma/vim-expand-region"
 " Vim plugin that allows you to visually select increasingly larger regions of text using the same key combination
 
-" Bundle "Shougo/neocomplete.vim"
-" TODO interesting for future development
-
+Bundle "Shougo/neocomplete.vim"
+" interesting for future development
+ 
 
 " LANGUAGE SPECIFIC PLUGINS
 "Bundle "kana/vim-textobj-user"
@@ -173,10 +173,10 @@ inoremap <C-j> <C-n>
 inoremap <C-k> <C-p>
 
 "some togglables
-nnoremap <leader>1 :NERDTreeToggle<CR>
-nnoremap <leader>2 :GundoToggle<CR>
-nnoremap <leader>3 :set invpaste paste?<CR>
-set pastetoggle=<leader>3
+nnoremap <F2> :NERDTreeToggle<CR>
+nnoremap <F3> :GundoToggle<CR>
+nnoremap <F4> :set invpaste paste?<CR>
+set pastetoggle=<F4>
 
 "working directoy allawys the one where the actual buffer is located
 set autochdir
@@ -290,6 +290,42 @@ cmap w!! w !sudo tee > /dev/null %
 "let g:yankring_history_file = '.vim/tmp/.yankring-history'
 nnoremap <leader>yr :YRShow<CR>
 "nnoremap C-y :YRShow<CR>
+
+" NeoComplete configuration by YADR
+" neocomplete
+" Next generation completion framework.
+let g:acp_enableAtStartup = 0
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_camel_case = 1
+let g:neocomplete#enable_smart_case = 1
+" Default # of completions is 100, that's crazy.
+let g:neocomplete#max_list = 15
+" Set minimum syntax keyword length.
+let g:neocomplete#auto_completion_start_length = 3 
+" Map standard Ctrl-N completion to Cmd-Space
+inoremap <D-Space> <C-n>
+" This makes sure we use neocomplete completefunc instead of
+" the one in rails.vim, otherwise this plugin will crap out.
+let g:neocomplete#force_overwrite_completefunc = 1
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplete#close_popup()
+inoremap <expr><C-e>  neocomplete#cancel_popup()
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 
 " THINGS TODO ON NEW INSTALL
 " git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
