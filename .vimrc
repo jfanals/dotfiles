@@ -91,6 +91,9 @@ Bundle 'joonty/vdebug.git'
 let g:vdebug_options = {'server': '0.0.0.0', 'path_maps' : {"/srv/www/": "/home/jfanals/BtSync/vagrant/vagrant-local/www/"} }
 "let g:vdebug_options = {'server': '0.0.0.0', 'path_maps' : {"/srv/www/naturalcomolavidamisma/htdocs": "/home/jfanals/BtSync/vagrant/vagrant-local/www/naturalcomolavidamisma/htdocs"} }
 
+" YankRing, keep history of yanks
+Bundle "skwp/YankRing.vim"
+
 " enable all the plugins
 filetype plugin indent on
 
@@ -187,7 +190,8 @@ vnoremap # :call NERDComment(1, "toggle")<CR>
 nnoremap # V:call NERDComment(1, "toggle")<CR>
 
 " ctrlP config
-let g:ctrlp_map = "<c-p>"
+"let g:ctrlp_map = "<c-p>"
+let g:ctrlp_map = "<leader>p"
 let g:ctrlp_cmd = 'CtrlPMRU'
 "nnoremap <leader>h :CtrlPMRU<CR>
 "nnoremap <leader>bp :CtrlPBuffer<CR>
@@ -282,6 +286,10 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 cmap w!! w !sudo tee > /dev/null %
 "http://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work
 
+" YankRing configuration
+"let g:yankring_history_file = '.vim/tmp/.yankring-history'
+nnoremap <leader>yr :YRShow<CR>
+"nnoremap C-y :YRShow<CR>
 
 " THINGS TODO ON NEW INSTALL
 " git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
