@@ -2,15 +2,15 @@ Installation
 
     git clone git://github.com/ischnura/dotfiles.git
 
+Inside of ~/.vim make /tmp, inside of which mkdir swap backup undo
+    mkdir ~/.vim/tmp ~/.vim/tmp/swap ~/.vim/tmp/undo ~/.vim/tmp/backup
+
 Install vundle vim plugin to download the rest of the plugins
 
     git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 Then on vim run
     :BundleUpdate :BundleInstall
-
-Inside of ~/.vim make /tmp, inside of which mkdir swap backup undo
-    mkdir ~/.vim/tmp ~/.vim/tmp/swap ~/.vim/tmp/undo ~/.vim/tmp/backup
 
 install ctags, ack, ag
     sudo packer -S silver-searcher-git ack ctags
@@ -25,3 +25,8 @@ make zsh default shell
 start and attach to tmux
     tmux new -s work
     tmux attach -f work
+
+need to create .gitconfig.user with user credentials such as
+[user]
+    name = Paco Chocolatero        
+    email = paco@chocolatero.com 
