@@ -30,3 +30,6 @@ need to create .gitconfig.user with user credentials such as
 [user]
     name = Paco Chocolatero        
     email = paco@chocolatero.com 
+
+link to authorised keys
+    ln -s ~/dotfiles/.ssh/authorized_keys ~/.ssh/
