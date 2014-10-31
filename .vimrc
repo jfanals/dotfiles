@@ -94,6 +94,11 @@ let g:vdebug_options = {'server': '0.0.0.0', 'path_maps' : {"/srv/www/": "/home/
 " YankRing, keep history of yanks
 Bundle "skwp/YankRing.vim"
 
+
+" Vim-Jade syntax highlighting
+Bundle "digitaltoad/vim-jade"
+
+
 " enable all the plugins
 filetype plugin indent on
 
@@ -117,6 +122,7 @@ set ls=2
 set visualbell
 set cursorline
 " set nowrap
+set textwidth=0 wrapmargin=0
 set backspace=indent,eol,start
 set shell=/bin/bash
 set completeopt -=preview
