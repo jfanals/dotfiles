@@ -28,3 +28,7 @@ PATH=$PATH:$ANDROID_HOME:$ANDROID_TOOLS:$ANDROID_PLATFORM_TOOLS:$LINUXBREW:$LOCA
 
 export ANT_HOME="$HOME/ant"
 export PATH="$PATH:$ANT_HOME/bin"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+source ~/dotfiles/z.sh

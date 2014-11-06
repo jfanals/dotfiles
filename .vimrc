@@ -88,7 +88,9 @@ Bundle "Shougo/neocomplete.vim"
 
 " vim debug for xdebug for php
 Bundle 'joonty/vdebug.git'
-let g:vdebug_options = {'server': '0.0.0.0', 'path_maps' : {"/srv/www/": "/home/jfanals/BtSync/vagrant/vagrant-local/www/"} }
+"let g:vdebug_options = {'server': '0.0.0.0', 'path_maps' : {"/srv/www/": "/home/jfanals/BtSync/vagrant/vagrant-local/www/"} }
+"let g:vdebug_options = {'server': '0.0.0.0', 'path_maps' : {"/var/www/nizos.dev/public/api/": "/home/jfanals/BtSync/vagrant/nizosdevbox/www/nizos.dev/public/api/"} }
+let g:vdebug_options = {'server': '0.0.0.0', 'path_maps' : {"/var/www/nizos.dev/public/": "/home/jfanals/BtSync/vagrant/nizosdevbox/www/nizos.dev/public/"} }
 "let g:vdebug_options = {'server': '0.0.0.0', 'path_maps' : {"/srv/www/naturalcomolavidamisma/htdocs": "/home/jfanals/BtSync/vagrant/vagrant-local/www/naturalcomolavidamisma/htdocs"} }
 
 " YankRing, keep history of yanks
@@ -164,6 +166,8 @@ let g:syntastic_javascript_jshint_conf = "$HOME/.jshintrc"
 let g:syntastic_mode_map = { 'mode': 'active',
      \ 'active_filetypes': ['javascript', 'ruby'], }
 "let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
+let g:syntastic_php_checkers = ['php']
+"let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 
 augroup line_return
 	au!
