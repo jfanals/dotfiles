@@ -80,6 +80,11 @@ Bundle "terryma/vim-expand-region"
 
 Bundle "Shougo/neocomplete.vim"
 " interesting for future development
+
+Bundle 'othree/html5.vim'
+" HTML5 omnicomplete and syntax 
+
+
  
 
 " LANGUAGE SPECIFIC PLUGINS
@@ -100,6 +105,11 @@ Bundle "skwp/YankRing.vim"
 " Vim-Jade syntax highlighting
 Bundle "digitaltoad/vim-jade"
 
+" plugin from http://www.vim.org/scripts/script.php?script_id=3081
+" for indenting javascript files correctly
+Bundle "vim-scripts/JavaScript-Indent"
+
+Bundle "tpope/vim-surround"
 
 " enable all the plugins
 filetype plugin indent on
@@ -110,8 +120,9 @@ set expandtab
 set smarttab
 set shiftwidth=2
 set softtabstop=2
-set tabstop=4
-"" set autoindent
+set tabstop=2
+set autoindent
+set smartindent
 set ruler
 set hidden
 set ignorecase
@@ -128,7 +139,7 @@ set textwidth=0 wrapmargin=0
 set backspace=indent,eol,start
 set shell=/bin/bash
 set completeopt -=preview
-set textwidth=95
+"set textwidth=95
 set wildmenu
 set ttyfast
 set showmode
@@ -159,13 +170,22 @@ set undofile
 set history=100
 set undolevels=100
 
+set foldmethod=indent
+
+
 " syntastic
 let g:syntastic_javascript_checkers = ["jshint"]
-let g:syntastic_jshint_exec = "/usr/local/bin/jshint"
-let g:syntastic_javascript_jshint_conf = "$HOME/.jshintrc"
+let g:syntastic_javascript_jshint_exec = "/usr/local/bin/jshint"
+let g:syntastic_javascript_jshint_args = "--config $HOME/.jshintrc"
 let g:syntastic_mode_map = { 'mode': 'active',
      \ 'active_filetypes': ['javascript', 'ruby'], }
-"let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
+" https://github.com/scrooloose/syntastic#faqhtml5
+" http://stackoverflow.com/a/23745506/315848
+
+let g:syntastic_html_tidy_ignore_errors = ["unescaped", 
+      \ "trimming empty", 
+      \ "proprietary attribute \"infinite" ]
+let g:syntastic_html_tidy_exec = "/home/jfanals/.linuxbrew/bin/tidy"
 let g:syntastic_php_checkers = ['php']
 "let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 
@@ -241,6 +261,10 @@ nnoremap j gj
 nnoremap k gk
 inoremap jk <esc>
 nnoremap <leader>a :Ack! 
+
+"let g:ackprg = 'ag --vimgrep'
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
 nnoremap <leader>v V`]
 
 
