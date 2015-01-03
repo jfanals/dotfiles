@@ -43,6 +43,7 @@ link to authorised keys
     ln -s ~/dotfiles/.ssh/authorized_keys ~/.ssh/
 
 cp basic .vimrc .tmux and .gitconfig
+
     cp dotfiles/.vimrc .
     cp dotfiles/.gitconfig .
     cp dotfiles/.tmux
