@@ -4,7 +4,7 @@ Installation
 
 Inside of ~/.vim make /tmp, inside of which mkdir swap backup undo
 
-    mkdir ~/.vim/tmp ~/.vim/tmp/swap ~/.vim/tmp/undo ~/.vim/tmp/backup
+    mkdir ~/.vim ~/.vim/tmp ~/.vim/tmp/swap ~/.vim/tmp/undo ~/.vim/tmp/backup
 
 Install vundle vim plugin to download the rest of the plugins
 
@@ -19,9 +19,9 @@ install ctags, ack, ag
     sudo packer -S silver-searcher-git ack ctags
     sudo apt-get install ack-grep
 
-install zsh mc
+install zsh mc vim-nox
 
-    sudo apt-get install mc zsh
+    sudo apt-get install mc zsh vim-nox
 
 make zsh default shell
 
@@ -41,3 +41,12 @@ need to create .gitconfig.user with user credentials such as
 link to authorised keys
 
     ln -s ~/dotfiles/.ssh/authorized_keys ~/.ssh/
+
+cp basic .vimrc .tmux and .gitconfig
+    cp dotfiles/.vimrc .
+    cp dotfiles/.gitconfig .
+    cp dotfiles/.tmux
+
+install oh-my-zsh
+
+    curl -L http://install.ohmyz.sh | sh

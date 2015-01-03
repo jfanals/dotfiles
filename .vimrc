@@ -183,6 +183,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
 " http://stackoverflow.com/a/23745506/315848
 
 let g:syntastic_html_tidy_ignore_errors = ["unescaped", 
+      \ "\<div\> attribute \"tabindex\" has invalid value \"-1\"", 
       \ "trimming empty", 
       \ "proprietary attribute \"infinite" ]
 let g:syntastic_html_tidy_exec = "/home/jfanals/.linuxbrew/bin/tidy"
