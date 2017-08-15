@@ -38,6 +38,12 @@ Plug 't9md/vim-choosewin'
 " Surround
 Plug 'tpope/vim-surround'
 
+" Beautiful vim desing
+Plug 'bling/vim-airline'
+
+" Show a git diff in column
+Plug 'airblade/vim-gitgutter'
+
 
 
 " jfanals plugins END 
@@ -52,71 +58,7 @@ call plug#end()
 """""""
 """"""" jfanals configuration START
 """""""
-""""""" NERDTree START
-" Toggle NERDTree / File explorer
-nnoremap <F2> :NERDTreeToggle<CR>
-"working directoy allawys the one where the actual buffer is located
-set autochdir
-let NERDTreeChDirMode=2
-"Show hidden files in NerdTree  
-let NERDTreeShowHidden=1  
 
-""""""" Undotree START
-nnoremap <F3> :UndotreeToggle<CR>
-if has("pesistent_undo")
-    set undodir=~/.vim/tmp/undo/
-    set undofile
-endif
-
-""""""" NERDCommenter START
-"from https://github.com/jpalardy/dotfiles/blob/master/vim/mappings.vim
-vnoremap # :call NERDComment(1, "toggle")<CR>
-nnoremap # V:call NERDComment(1, "toggle")<CR>
-
-""""""" Set Paste Toggle START
-" to remove smart intending on demand
-nnoremap <F4> :set invpaste paste?<CR>
-set pastetoggle=<F4>
-
-" from https://github.com/sickill/vim-pasta
-" Paste with indentation
-nnoremap p p`[v`]=
-nnoremap P P`[v`]=
-
-""""""" Autosave
-let g:auto_save = 1  " enable AutoSave on Vim startup
-
-"let g:auto_save_silent = 1  " do not display the auto-save notification
-
-""""""" Fugitive Git
-" Auto clean fugitive buffers
-autocmd BufReadPost fugitive://* set bufhidden=delete
-" Add git branch to status line
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
-
-""""""" ctrlP config, last used files
-let g:ctrlp_map = "<c-p>"
-let g:ctrlp_map = "<leader>p"
-
-""""""" Vim Sessions Extension Management
-let g:session_directory = "~/.vim/tmp/session"
-let g:session_autoload = "no"
-let g:session_autosave = "no"
-let g:session_command_aliases = 1
-nnoremap <leader>so :OpenSession 
-nnoremap <leader>ss :SaveSession 
-nnoremap <leader>sd :DeleteSession<CR>
-nnoremap <leader>sc :CloseSession<CR>
-
-
-""""""" Colorsheme solarized
-colorscheme solarized
-set term=xterm-256color
-set background=dark
-
-""""""" Choosewin plugin
-nmap - <Plug>(choosewin)
-let g:choosewin_overlay_enable = 1
 
 
 """""""
@@ -188,7 +130,74 @@ nnoremap <leader><space> :noh<cr>
 
 
 
+""""""" NERDTree START
+" Toggle NERDTree / File explorer
+nnoremap <F2> :NERDTreeToggle<CR>
+"working directoy allawys the one where the actual buffer is located
+set autochdir
+let NERDTreeChDirMode=2
+"Show hidden files in NerdTree  
+let NERDTreeShowHidden=1  
 
+""""""" Undotree START
+nnoremap <F3> :UndotreeToggle<CR>
+if has("pesistent_undo")
+    set undodir=~/.vim/tmp/undo/
+    set undofile
+endif
+
+""""""" NERDCommenter START
+"from https://github.com/jpalardy/dotfiles/blob/master/vim/mappings.vim
+vnoremap # :call NERDComment(1, "toggle")<CR>
+nnoremap # V:call NERDComment(1, "toggle")<CR>
+
+""""""" Set Paste Toggle START
+" to remove smart intending on demand
+nnoremap <F4> :set invpaste paste?<CR>
+set pastetoggle=<F4>
+
+" from https://github.com/sickill/vim-pasta
+" Paste with indentation
+nnoremap p p`[v`]=
+nnoremap P P`[v`]=
+
+""""""" Autosave
+let g:auto_save = 1  " enable AutoSave on Vim startup
+
+"let g:auto_save_silent = 1  " do not display the auto-save notification
+
+""""""" Fugitive Git
+" Auto clean fugitive buffers
+autocmd BufReadPost fugitive://* set bufhidden=delete
+" Add git branch to status line
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+
+""""""" ctrlP config, last used files
+let g:ctrlp_map = "<c-p>"
+let g:ctrlp_map = "<leader>p"
+
+""""""" Colorsheme solarized
+colorscheme solarized
+set term=xterm-256color
+set background=dark
+
+""""""" Choosewin plugin
+nmap - <Plug>(choosewin)
+let g:choosewin_overlay_enable = 1
+
+""""""" Vim Sessions Extension Management
+let g:session_directory = "~/.vim/tmp/session"
+let g:session_autoload = "no"
+let g:session_autosave = "no"
+let g:session_command_aliases = 1
+nnoremap <leader>so :OpenSession 
+nnoremap <leader>ss :SaveSession 
+nnoremap <leader>sd :DeleteSession<CR>
+nnoremap <leader>sc :CloseSession<CR>
+
+
+""""""" Vim Git Gutter
+updatetime=250
 
 
 
