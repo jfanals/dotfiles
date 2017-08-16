@@ -128,6 +128,12 @@ cmap w!! w !sudo tee > /dev/null %
 " Remove selected text
 nnoremap <leader><space> :noh<cr>
 
+" Show relative line number
+if exists("&relativenumber")
+    set relativenumber
+    au BufReadPost * set relativenumber
+endif
+
 
 
 """"""" NERDTree START
@@ -194,9 +200,8 @@ nnoremap <leader>ss :SaveSession
 nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
 
-
 """"""" Vim Git Gutter
-updatetime=250
+set updatetime=250
 
 
 
