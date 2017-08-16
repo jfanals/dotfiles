@@ -134,6 +134,12 @@ if exists("&relativenumber")
     au BufReadPost * set relativenumber
 endif
 
+" No backup files
+set nobackup       "no backup files
+set nowritebackup  "only in case you don't want a backup file while editing
+set noswapfile     "no swap files
+
+
 
 
 """"""" NERDTree START
@@ -147,10 +153,8 @@ let NERDTreeShowHidden=1
 
 """"""" Undotree START
 nnoremap <F3> :UndotreeToggle<CR>
-if has("pesistent_undo")
-    set undodir=~/.vim/tmp/undo/
-    set undofile
-endif
+set undodir=~/.vim/tmp/undo/
+set undofile
 
 """"""" NERDCommenter START
 "from https://github.com/jpalardy/dotfiles/blob/master/vim/mappings.vim
@@ -209,6 +213,7 @@ set updatetime=250
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 "
 "
+"
 " Inside of ~/.vim make /tmp, inside of which mkdir swap backup undo
 " mkdir ~/.vim/tmp ~/.vim/tmp/swap ~/.vim/tmp/undo ~/.vim/tmp/backup
 "
@@ -219,5 +224,4 @@ set updatetime=250
 " on vim
 " :PlugUpdate :PlugInstall
 "
-
 """"""" jfanals configuration END
