@@ -141,7 +141,13 @@ if exists("&relativenumber")
     au BufReadPost * set relativenumber
 endif
 
+" all temp files in same place
+set directory=~/.vim/tmp/swap/
 
+" ignore case in serach
+" https://stackoverflow.com/questions/2287440/how-to-do-case-insensitive-search-in-vim
+set ignorecase
+set smartcase
 
 """"""" NERDTree START
 " Toggle NERDTree / File explorer
