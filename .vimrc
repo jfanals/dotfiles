@@ -44,7 +44,14 @@ Plug 'bling/vim-airline'
 " Show a git diff in column
 Plug 'airblade/vim-gitgutter'
 
+" Silver Searcher
+Plug 'mileszs/ack.vim'
 
+" Vim Slim Syntax
+Plug 'slim-template/vim-slim'
+
+" Swap windows without ruining your layout!
+Plug 'wesQ3/vim-windowswap'
 
 " jfanals plugins END 
 
@@ -202,6 +209,13 @@ nnoremap <leader>sc :CloseSession<CR>
 
 """"""" Vim Git Gutter
 set updatetime=250
+
+
+""""""" Silver Searcher Ack settings
+nnoremap <leader>a :Ack! 
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+endif
 
 
 
