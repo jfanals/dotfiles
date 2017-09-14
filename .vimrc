@@ -148,6 +148,7 @@ set directory=~/.vim/tmp/swap/
 " https://stackoverflow.com/questions/2287440/how-to-do-case-insensitive-search-in-vim
 set ignorecase
 set smartcase
+" also use \C or \c in search terms to force case in/sensitive
 
 """"""" NERDTree START
 " Toggle NERDTree / File explorer
