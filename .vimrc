@@ -53,6 +53,17 @@ Plug 'slim-template/vim-slim'
 " Swap windows without ruining your layout!
 Plug 'wesQ3/vim-windowswap'
 
+" ctags that includes gems in rails projects
+" https://chodounsky.net/2016/12/09/using-tags-to-browse-ruby-and-gem-source-with-vim/
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rbenv'
+Plug 'tpope/vim-bundler'
+
+" Display errors in code
+
+Plug 'scrooloose/syntastic'
+
 " jfanals plugins END 
 
 " Initialize plugin system
@@ -98,14 +109,18 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" show existing tab with 4 spaces width
-set tabstop=4
+" show existing tab with 2 spaces width
+set tabstop=2
 
-" when indenting with '>', use 4 spaces width
-set shiftwidth=4
+" when indenting with '>', use 2 spaces width
+set shiftwidth=2
 
-" On pressing tab, insert 4 spaces
+" On pressing tab, insert 2 spaces
 set expandtab
+
+" set local tab stop for ruby
+autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
+
 
 " visual reselect of just pasted
 "nnoremap gp `[v]`
@@ -141,8 +156,10 @@ if exists("&relativenumber")
     au BufReadPost * set relativenumber
 endif
 
-" all temp files in same place
-set directory=~/.vim/tmp/swap/
+" stop vim from creating automatic backups
+set noswapfile
+set nobackup
+set nowb
 
 " ignore case in serach
 " https://stackoverflow.com/questions/2287440/how-to-do-case-insensitive-search-in-vim
@@ -150,9 +167,20 @@ set ignorecase
 set smartcase
 " also use \C or \c in search terms to force case in/sensitive
 
+" Open the ctags definition in a new tab
+"map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+
+" Open the ctags definition in a vertical split
+map <leader>] :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+map <leader>h <C-T>
+map <leader>l <C-]>
+
+
+
 """"""" NERDTree START
 " Toggle NERDTree / File explorer
 nnoremap <F2> :NERDTreeToggle<CR>
+nnoremap <leader>f :NERDTreeFind<CR>
 "working directoy allawys the one where the actual buffer is located
 set autochdir
 let NERDTreeChDirMode=2
@@ -161,10 +189,11 @@ let NERDTreeShowHidden=1
 
 """"""" Undotree START
 nnoremap <F3> :UndotreeToggle<CR>
-if has("pesistent_undo")
-    set undodir=~/.vim/tmp/undo/
-    set undofile
-endif
+"if has("pesistent_undo")
+silent !mkdir ~/.vim/tmp/undo > /dev/null 2>&1
+set undodir=~/.vim/tmp/undo/
+set undofile
+"endif
 
 """"""" NERDCommenter START
 "from https://github.com/jpalardy/dotfiles/blob/master/vim/mappings.vim
@@ -192,8 +221,9 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 """"""" ctrlP config, last used files
-let g:ctrlp_map = "<c-p>"
+"let g:ctrlp_map = "<c-p>"
 let g:ctrlp_map = "<leader>p"
+nnoremap <leader>m :CtrlPMRUFiles<CR>
 
 """"""" Colorsheme solarized
 colorscheme solarized
@@ -205,6 +235,7 @@ nmap - <Plug>(choosewin)
 let g:choosewin_overlay_enable = 1
 
 """"""" Vim Sessions Extension Management
+silent !mkdir ~/.vim/tmp/session > /dev/null 2>&1
 let g:session_directory = "~/.vim/tmp/session"
 let g:session_autoload = "no"
 let g:session_autosave = "no"
@@ -224,6 +255,8 @@ if executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
 
+" Synstatic Ruby Rubocop
+let g:syntastic_ruby_rubocop_exec      = '/url/bin/ruby /usr/local/bin/rubocop'
 
 
 " THINGS TODO ON NEW INSTALL
