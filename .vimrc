@@ -185,6 +185,18 @@ set complete+=kspell
 " Highlight the line the cursor is on
 set cursorline
 
+" Try to use while in insert mode
+" Completion using C-x C-p
+" Line completion C-x C-l
+" Tag completion C-x C-]
+" Ctag completion C-x C-o
+
+
+" By default add spellchecker to markdown files and gitcommits
+autocmd Filetype markdown setlocal spell textwidth=80
+autocmd Filetype gitcommit,mail setlocal spell textwidth=76 colorcolumn=77
+
+
 
 """"""" NERDTree START
 " Toggle NERDTree / File explorer
