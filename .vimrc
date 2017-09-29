@@ -61,12 +61,14 @@ Plug 'tpope/vim-rbenv'
 Plug 'tpope/vim-bundler'
 
 " Display errors in code
-
 Plug 'scrooloose/syntastic'
 
 " Coffee script
-
 Plug 'kchmck/vim-coffee-script'
+
+" Vim Hardtime/Hardmode
+Plug 'takac/vim-hardtime'
+
 
 " jfanals plugins END 
 
