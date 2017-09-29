@@ -64,6 +64,10 @@ Plug 'tpope/vim-bundler'
 
 Plug 'scrooloose/syntastic'
 
+" Coffee script
+
+Plug 'kchmck/vim-coffee-script'
+
 " jfanals plugins END 
 
 " Initialize plugin system
@@ -175,6 +179,11 @@ map <leader>] :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 map <leader>h <C-T>
 map <leader>l <C-]>
 
+" Autocomplete with dictionary words when spell check is on
+set complete+=kspell 
+
+" Highlight the line the cursor is on
+set cursorline
 
 
 """"""" NERDTree START
