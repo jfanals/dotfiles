@@ -284,6 +284,7 @@ let g:syntastic_ruby_rubocop_exec      = '/url/bin/ruby /usr/local/bin/rubocop'
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 "
 "
+"
 " Inside of ~/.vim make /tmp, inside of which mkdir swap backup undo
 " mkdir ~/.vim/tmp ~/.vim/tmp/swap ~/.vim/tmp/undo ~/.vim/tmp/backup
 "
@@ -294,5 +295,4 @@ let g:syntastic_ruby_rubocop_exec      = '/url/bin/ruby /usr/local/bin/rubocop'
 " on vim
 " :PlugUpdate :PlugInstall
 "
-
 """"""" jfanals configuration END
