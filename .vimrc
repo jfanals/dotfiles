@@ -69,6 +69,8 @@ Plug 'kchmck/vim-coffee-script'
 " Vim Hardtime/Hardmode
 Plug 'takac/vim-hardtime'
 
+" Brings physics-based smooth scrolling to the Vim world!
+Plug 'yuttie/comfortable-motion.vim'
 
 " jfanals plugins END 
 
@@ -138,8 +140,8 @@ set encoding=utf-8
 source $VIMRUNTIME/vimrc_example.vim
 
 " Keep search matches in the middle of the window.
-nnoremap n nzzzv
-nnoremap N Nzzzv
+"nnoremap n nzzzv
+"nnoremap N Nzzzv
 
 " one-key indentation
 " "from https://github.com/jpalardy/dotfiles/blob/master/vim/mappings.vim
@@ -281,6 +283,12 @@ endif
 " Synstatic Ruby Rubocop
 let g:syntastic_ruby_rubocop_exec      = '/url/bin/ruby /usr/local/bin/rubocop'
 
+" HardTime
+let g:hardtime_default_on = 1
+
+"Comfortable-motion
+noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
+noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
 
 " THINGS TODO ON NEW INSTALL
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
