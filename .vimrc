@@ -72,6 +72,12 @@ Plug 'takac/vim-hardtime'
 " Brings physics-based smooth scrolling to the Vim world!
 Plug 'yuttie/comfortable-motion.vim'
 
+" Easymotion
+Plug 'easymotion/vim-easymotion'
+
+"Incrementaly Highlights ALL pattern matches
+Plug 'haya14busa/incsearch.vim'
+
 " jfanals plugins END 
 
 " Initialize plugin system
@@ -140,8 +146,8 @@ set encoding=utf-8
 source $VIMRUNTIME/vimrc_example.vim
 
 " Keep search matches in the middle of the window.
-"nnoremap n nzzzv
-"nnoremap N Nzzzv
+nnoremap n nzzzv
+nnoremap N Nzzzv
 
 " one-key indentation
 " "from https://github.com/jpalardy/dotfiles/blob/master/vim/mappings.vim
@@ -156,7 +162,7 @@ cmap w!! w !sudo tee > /dev/null %
 :setlocal spell spelllang=en_gb
 
 " Remove selected text
-nnoremap <leader><space> :noh<cr>
+nnoremap <leader>c :noh<cr>
 
 " Show relative line number
 if exists("&relativenumber")
@@ -289,6 +295,11 @@ let g:hardtime_default_on = 1
 "Comfortable-motion
 noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
 noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
+
+" Incsearch
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
 
 " THINGS TODO ON NEW INSTALL
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
