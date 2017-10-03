@@ -78,6 +78,9 @@ Plug 'easymotion/vim-easymotion'
 "Incrementaly Highlights ALL pattern matches
 Plug 'haya14busa/incsearch.vim'
 
+" The ultimate snippet solution for Vim.
+"Plug 'SirVer/ultisnips'
+
 " jfanals plugins END 
 
 " Initialize plugin system
