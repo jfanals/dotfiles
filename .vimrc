@@ -255,6 +255,8 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 "let g:ctrlp_map = "<c-p>"
 let g:ctrlp_map = "<leader>p"
 nnoremap <leader>m :CtrlPMRUFiles<CR>
+"Keep caches between sessions - F5 to refresh
+let g:ctrlp_clear_cache_on_exit = 0
 
 """"""" Colorsheme solarized
 colorscheme solarized
@@ -290,7 +292,7 @@ endif
 let g:syntastic_ruby_rubocop_exec      = '/url/bin/ruby /usr/local/bin/rubocop'
 
 " HardTime
-let g:hardtime_default_on = 1
+"let g:hardtime_default_on = 1
 
 "Comfortable-motion
 noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
