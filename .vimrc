@@ -81,6 +81,9 @@ Plug 'haya14busa/incsearch.vim'
 " The ultimate snippet solution for Vim.
 "Plug 'SirVer/ultisnips'
 
+" YankRing, keep history of yanks
+Plug "skwp/YankRing.vim"
+
 " jfanals plugins END 
 
 " Initialize plugin system
@@ -306,6 +309,12 @@ noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
+
+" Yankring
+let g:yankring_history_file = '~/.vim/tmp/.yankring-history'
+nnoremap <silent><F11> :YRShow<CR>
+" :h yankring-tutorial
+" <C-P> or <C-N> after p
 
 " THINGS TODO ON NEW INSTALL
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
