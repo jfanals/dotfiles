@@ -81,8 +81,8 @@ Plug 'haya14busa/incsearch.vim'
 " The ultimate snippet solution for Vim.
 "Plug 'SirVer/ultisnips'
 
-" YankRing, keep history of yanks
-Plug 'skwp/YankRing.vim'
+" A lightweight implementation of emacs's kill-ring for vim
+Plug 'maxbrunsfeld/vim-yankstack'
 
 " jfanals plugins END 
 
@@ -289,7 +289,7 @@ nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
 
 """"""" Vim Git Gutter
-set updatetime=1000
+set updatetime=250
 
 
 """"""" Silver Searcher Ack settings
@@ -313,9 +313,12 @@ map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
-" Yankring
-let g:yankring_history_file = '.vim/tmp/.yankring-history'
-nnoremap <silent><F11> :YRShow<CR>
+" Yankring/Yankstack
+"let g:yankring_history_file = '.vim/tmp/.yankring-history'
+let g:yankstack_map_keys = 0
+nmap <C-P> <Plug>yankstack_substitute_older_paste
+nmap <C-N> <Plug>yankstack_substitute_newer_paste
+"nnoremap <silent><F11> :YRShow<CR>
 " :h yankring-tutorial
 " <C-P> or <C-N> after p
 
