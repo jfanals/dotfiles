@@ -82,7 +82,7 @@ Plug 'haya14busa/incsearch.vim'
 "Plug 'SirVer/ultisnips'
 
 " YankRing, keep history of yanks
-Plug "skwp/YankRing.vim"
+Plug 'skwp/YankRing.vim'
 
 " jfanals plugins END 
 
@@ -244,8 +244,11 @@ set pastetoggle=<F4>
 
 " from https://github.com/sickill/vim-pasta
 " Paste with indentation
-nnoremap p p`[v`]=
-nnoremap P P`[v`]=
+"nnoremap p p`[v`]=
+"nnoremap P P`[v`]=
+
+"Indent pasted code
+nnoremap <leader>= `[v`]=
 
 """"""" Autosave
 let g:auto_save = 1  " enable AutoSave on Vim startup
@@ -286,7 +289,7 @@ nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
 
 """"""" Vim Git Gutter
-set updatetime=250
+set updatetime=1000
 
 
 """"""" Silver Searcher Ack settings
@@ -311,7 +314,7 @@ map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
 " Yankring
-let g:yankring_history_file = '~/.vim/tmp/.yankring-history'
+let g:yankring_history_file = '.vim/tmp/.yankring-history'
 nnoremap <silent><F11> :YRShow<CR>
 " :h yankring-tutorial
 " <C-P> or <C-N> after p
