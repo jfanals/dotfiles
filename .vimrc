@@ -82,7 +82,7 @@ Plug 'haya14busa/incsearch.vim'
 "Plug 'SirVer/ultisnips'
 
 " A lightweight implementation of emacs's kill-ring for vim
-Plug 'maxbrunsfeld/vim-yankstack'
+"Plug 'maxbrunsfeld/vim-yankstack'
 
 " jfanals plugins END 
 
@@ -212,6 +212,10 @@ set cursorline
 autocmd Filetype markdown setlocal spell textwidth=80
 autocmd Filetype gitcommit,mail setlocal spell textwidth=76 colorcolumn=77
 
+" http://vim.wikia.com/wiki/Avoiding_the_%22Hit_ENTER_to_continue%22_prompts
+set shortmess=a
+set cmdheight=2
+
 
 
 """"""" NERDTree START
@@ -259,6 +263,13 @@ let g:auto_save_silent = 1  " do not display the auto-save notification
 autocmd BufReadPost fugitive://* set bufhidden=delete
 " Add git branch to status line
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gp :Gpush<CR>
+nnoremap <leader>gw :Gwrite<CR>
+nnoremap <leader>gc :Gcommit<CR>
+nnoremap <leader>gf :Gpush --force-with-lease<CR>
+nnoremap <leader>grm :Git rebase master<CR>
+nnoremap <leader>gri :Git rebase -i 
 
 """"""" ctrlP config, last used files
 "let g:ctrlp_map = "<c-p>"
@@ -294,8 +305,8 @@ set updatetime=250
 
 """"""" Silver Searcher Ack settings
 nnoremap <leader>a :Ack! 
-if executable('ag')
-    let g:ackprg = 'ag --vimgrep'
+if executable('rg')
+    let g:ackprg = 'rg --vimgrep'
 endif
 
 " Synstatic Ruby Rubocop
@@ -315,9 +326,9 @@ map g/ <Plug>(incsearch-stay)
 
 " Yankring/Yankstack
 "let g:yankring_history_file = '.vim/tmp/.yankring-history'
-let g:yankstack_map_keys = 0
-nmap <C-P> <Plug>yankstack_substitute_older_paste
-nmap <C-N> <Plug>yankstack_substitute_newer_paste
+"let g:yankstack_map_keys = 0
+"nmap <C-P> <Plug>yankstack_substitute_older_paste
+"nmap <C-N> <Plug>yankstack_substitute_newer_paste
 "nnoremap <silent><F11> :YRShow<CR>
 " :h yankring-tutorial
 " <C-P> or <C-N> after p
