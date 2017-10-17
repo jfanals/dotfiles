@@ -268,8 +268,7 @@ nnoremap <leader>gp :Gpush<CR>
 nnoremap <leader>gw :Gwrite<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gf :Gpush --force-with-lease<CR>
-nnoremap <leader>grm :Git rebase master<CR>
-nnoremap <leader>gri :Git rebase -i 
+nnoremap <leader>gr :Git rebase
 
 """"""" ctrlP config, last used files
 "let g:ctrlp_map = "<c-p>"
