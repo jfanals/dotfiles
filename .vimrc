@@ -6,6 +6,9 @@ call plug#begin('~/.vim/plugged')
 " Git manager
 Plug 'tpope/vim-fugitive'
 
+" Fugitive extension for Git branches
+Plug 'idanarye/vim-merginal'
+
 " Nerd Tree - File explorer
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
@@ -269,6 +272,9 @@ nnoremap <leader>gw :Gwrite<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gf :Gpush --force-with-lease<CR>
 nnoremap <leader>gr :Git rebase
+
+""""""" Merginal Fugitive
+noremap <F6> :MerginalToggle<CR>
 
 """"""" ctrlP config, last used files
 "let g:ctrlp_map = "<c-p>"
