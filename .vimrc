@@ -66,6 +66,10 @@ Plug 'tpope/vim-bundler'
 " Automatically adjusts shiftwidth and expandtab based on current file
 Plug 'tpope/vim-sleuth'
 
+" Allow Ack to do the searches in the background
+" https://github.com/mileszs/ack.vim/issues/19
+"Plug 'tpope/vim-dispatch'
+
 " Display errors in code
 Plug 'scrooloose/syntastic'
 
@@ -220,7 +224,7 @@ autocmd Filetype gitcommit,mail setlocal spell textwidth=76 colorcolumn=77
 
 " http://vim.wikia.com/wiki/Avoiding_the_%22Hit_ENTER_to_continue%22_prompts
 set shortmess=a
-set cmdheight=2
+set cmdheight=3
 
 
 
