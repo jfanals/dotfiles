@@ -62,6 +62,8 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rbenv'
 Plug 'tpope/vim-bundler'
+
+" Automatically adjusts shiftwidth and expandtab based on current file
 Plug 'tpope/vim-sleuth'
 
 " Display errors in code
