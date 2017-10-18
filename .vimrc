@@ -226,6 +226,7 @@ autocmd Filetype gitcommit,mail setlocal spell textwidth=76 colorcolumn=77
 set shortmess=a
 set cmdheight=3
 
+nnoremap <leader>o :only<CR>
 
 
 """"""" NERDTree START
