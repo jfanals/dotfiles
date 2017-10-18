@@ -62,6 +62,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rbenv'
 Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-sleuth'
 
 " Display errors in code
 Plug 'scrooloose/syntastic'
@@ -133,16 +134,16 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " show existing tab with 2 spaces width
-set tabstop=2
+"set tabstop=2
 
 " when indenting with '>', use 2 spaces width
-set shiftwidth=2
+"set shiftwidth=2
 
 " On pressing tab, insert 2 spaces
-set expandtab
+"set expandtab
 
 " set local tab stop for ruby
-autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
+"autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
 
 
 " visual reselect of just pasted
