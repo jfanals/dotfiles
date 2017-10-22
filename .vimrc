@@ -66,6 +66,9 @@ Plug 'tpope/vim-bundler'
 " Automatically adjusts shiftwidth and expandtab based on current file
 Plug 'tpope/vim-sleuth'
 
+" Useful for copying text to clipboard while using tmux
+"Plug 'tpope/vim-rsi'
+
 " Allow Ack to do the searches in the background
 " https://github.com/mileszs/ack.vim/issues/19
 "Plug 'tpope/vim-dispatch'
@@ -93,6 +96,12 @@ Plug 'haya14busa/incsearch.vim'
 
 " A lightweight implementation of emacs's kill-ring for vim
 "Plug 'maxbrunsfeld/vim-yankstack'
+
+" Make terminal vim and tmux work better together.
+"Plug 'tmux-plugins/vim-tmux-focus-events'
+
+" seamless integration for vim and tmux's clipboard
+"Plug 'roxma/vim-tmux-clipboard'
 
 " jfanals plugins END 
 
@@ -227,6 +236,9 @@ set shortmess=a
 set cmdheight=3
 
 nnoremap <leader>o :only<CR>
+
+" Access/write to system clipboard
+set clipboard=unnamed
 
 
 """"""" NERDTree START

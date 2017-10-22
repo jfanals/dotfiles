@@ -129,4 +129,4 @@
 	name = ischnura
 	email = jfanals@gmail.com
 [credential]
-	helper = cache --timeout=360000
+	helper = cache --timeout=3600000
