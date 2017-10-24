@@ -357,6 +357,9 @@ map g/ <Plug>(incsearch-stay)
 "nnoremap <silent><F11> :YRShow<CR>
 " :h yankring-tutorial
 " <C-P> or <C-N> after p
+"
+" Easymotion
+nmap <leader><leader> <Plug>(easymotion-s)
 
 " THINGS TODO ON NEW INSTALL
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
