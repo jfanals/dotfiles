@@ -298,8 +298,10 @@ noremap <F6> :MerginalToggle<CR>
 
 """"""" ctrlP config, last used files
 "let g:ctrlp_map = "<c-p>"
+let g:ctrlp_extensions = ['tag']
 let g:ctrlp_map = "<leader>p"
 nnoremap <leader>m :CtrlPMRUFiles<CR>
+nnoremap <leader>t :CtrlPTag<CR>
 "Keep caches between sessions - F5 to refresh
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_max_height = 25
