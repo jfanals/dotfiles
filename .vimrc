@@ -337,7 +337,8 @@ if executable('rg')
 endif
 
 " Synstatic Ruby Rubocop
-let g:syntastic_ruby_rubocop_exec      = '/url/bin/ruby /usr/local/bin/rubocop'
+let g:syntastic_ruby_rubocop_exec      = '/usr/bin/ruby /usr/local/bin/rubocop'
+"let g:syntastic_quiet_messages = 0
 
 " HardTime
 "let g:hardtime_default_on = 1
