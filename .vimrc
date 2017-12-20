@@ -10,7 +10,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'idanarye/vim-merginal'
 
 " Nerd Tree - File explorer
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+"Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
 
 " comment multiple lines with leader + cc...
 Plug 'scrooloose/nerdcommenter'
