@@ -110,7 +110,7 @@ alias gom='git checkout master'
 
 export TERM=xterm-256color
 
-source ~/antigen.zsh
+source ~/dotfiles/antigen.zsh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
