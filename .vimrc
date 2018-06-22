@@ -57,6 +57,9 @@ Plug 'slim-template/vim-slim'
 " Swap windows without ruining your layout!
 Plug 'wesQ3/vim-windowswap'
 
+" Enables syntax highlighting in Ruby here document code blocks.
+Plug 'joker1007/vim-ruby-heredoc-syntax'
+
 " ctags that includes gems in rails projects
 " https://chodounsky.net/2016/12/09/using-tags-to-browse-ruby-and-gem-source-with-vim/
 Plug 'vim-ruby/vim-ruby'
@@ -76,6 +79,9 @@ Plug 'tpope/vim-sleuth'
 
 " Display errors in code
 Plug 'scrooloose/syntastic'
+
+" Format code automatically
+""""" Plug 'sbdchd/neoformat'
 
 " Coffee script
 Plug 'kchmck/vim-coffee-script'
@@ -338,7 +344,7 @@ if executable('rg')
 endif
 
 " Synstatic Ruby Rubocop
-let g:syntastic_ruby_rubocop_exec      = '/usr/bin/ruby /usr/local/bin/rubocop'
+let g:syntastic_ruby_rubocop_exec      = 'rubocop'
 "let g:syntastic_quiet_messages = 0
 
 " HardTime
