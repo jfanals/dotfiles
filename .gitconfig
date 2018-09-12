@@ -107,7 +107,7 @@
 [push]
   # 'git push' will push the current branch to its tracking branch
   # the usual default is to push all branches
-  default = tracking
+	default = current
 [core]
 	autocrlf = input
   editor = vim
@@ -126,7 +126,7 @@
 [include]
   path = .gitconfig.user
 [user]
-	name = ischnura
+	name = jfanals
 	email = jfanals@gmail.com
 [credential]
 	helper = cache --timeout=3600000

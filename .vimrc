@@ -219,7 +219,7 @@ set smartcase
 " Open the ctags definition in a vertical split
 map <leader>] :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 map <leader>h <C-T>
-map <leader>l <C-]>
+map <leader>l g<C-]>
 
 " Autocomplete with dictionary words when spell check is on
 set complete+=kspell 
@@ -314,9 +314,13 @@ let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_max_height = 25
 
 """"""" Colorsheme solarized
-colorscheme solarized
-set term=xterm-256color
+"colorscheme solarized
+"colorscheme candyman
+"colorscheme railscasts
+colorscheme gruvbox
 set background=dark
+"let g:gruvbox_contrast_dark = 'hard'
+"set term=xterm-256color
 
 """"""" Choosewin plugin
 nmap - <Plug>(choosewin)
