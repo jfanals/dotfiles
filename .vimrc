@@ -43,7 +43,7 @@ Plug 't9md/vim-choosewin'
 Plug 'tpope/vim-surround'
 
 " Beautiful vim desing
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
 
 " Show a git diff in column
 Plug 'airblade/vim-gitgutter'
@@ -78,7 +78,10 @@ Plug 'tpope/vim-sleuth'
 "Plug 'tpope/vim-dispatch'
 
 " Display errors in code
-Plug 'scrooloose/syntastic'
+"Plug 'scrooloose/syntastic'
+"
+"Asynchronous linting/fixing for Vim and Language Server Protocol (LSP) integration
+Plug 'w0rp/ale'
 
 " Format code automatically
 """"" Plug 'sbdchd/neoformat'
@@ -98,17 +101,28 @@ Plug 'easymotion/vim-easymotion'
 "Incrementaly Highlights ALL pattern matches
 Plug 'haya14busa/incsearch.vim'
 
+"Vim syntax highlighting for Vue components.
+Plug 'posva/vim-vue'
+
 " The ultimate snippet solution for Vim.
 "Plug 'SirVer/ultisnips'
 
 " A lightweight implementation of emacs's kill-ring for vim
+" These plugins do not work due to some external configuration
+" provably the auto save functionalisy
+" TODO: create a vim script that stops autosaving after paste for several
+" seconds
 "Plug 'maxbrunsfeld/vim-yankstack'
-
+"Plug 'vim-scripts/YankRing.vim'
+"
 " Make terminal vim and tmux work better together.
 "Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " seamless integration for vim and tmux's clipboard
 "Plug 'roxma/vim-tmux-clipboard'
+
+" easily search for, substitute, and abbreviate multiple variants of a word
+Plug 'tpope/vim-abolish'
 
 " jfanals plugins END 
 
@@ -137,6 +151,10 @@ set nocompatible
 " Enable syntax highlighting
 syntax on             
 
+" Set the filetype based on the file's extension, but only if
+" 'filetype' has not already been set
+au BufRead,BufNewFile *.html.erb.deface set filetype=html.erb
+
 " Enable filetype detection
 filetype on           
 
@@ -148,6 +166,10 @@ filetype plugin on
 
 " Let Leader be SPACEBAR
 let mapleader=" "
+
+" Allow deleting single characters without updating the default register
+noremap x "_x
+vnoremap p "_dP
 
 "Use Control hjkl to switch to correct window
 nnoremap <C-h> <C-w>h
@@ -348,8 +370,14 @@ if executable('rg')
 endif
 
 " Synstatic Ruby Rubocop
-let g:syntastic_ruby_rubocop_exec      = 'rubocop'
+"let g:syntastic_ruby_rubocop_exec      = 'rubocop'
 "let g:syntastic_quiet_messages = 0
+
+" ALE
+"let: b:ale_fixers = ['rubocop']
+"let g:airline#extensions#ale#enabled = 1
+"let g:ale_ruby_rubocop_executable
+" https://github.com/w0rp/ale/blob/master/doc/ale-ruby.txt
 
 " HardTime
 "let g:hardtime_default_on = 1
@@ -371,9 +399,28 @@ map g/ <Plug>(incsearch-stay)
 "nnoremap <silent><F11> :YRShow<CR>
 " :h yankring-tutorial
 " <C-P> or <C-N> after p
+
+" vim-scripts/YankRing.vim
 "
+
 " Easymotion
 nmap <leader><leader> <Plug>(easymotion-s)
+
+" https://stackoverflow.com/questions/4292733/vim-creating-parent-directories-on-save
+" mkdir directories of files with non existing folders
+" Very usefull when programming
+function s:MkNonExDir(file, buf)
+    if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+        let dir=fnamemodify(a:file, ':h')
+        if !isdirectory(dir)
+            call mkdir(dir, 'p')
+        endif
+    endif
+endfunction
+augroup BWCCreateDir
+    autocmd!
+    autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
+augroup END
 
 " THINGS TODO ON NEW INSTALL
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
