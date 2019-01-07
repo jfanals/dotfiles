@@ -47,6 +47,9 @@ Plug 'bling/vim-airline'
 
 " Show a git diff in column
 Plug 'airblade/vim-gitgutter'
+"Plug 'mhinz/vim-signify'
+" Apparently vim-signify is faster
+" but does not provide the undo/redo hunk feature...
 
 " Silver Searcher
 Plug 'mileszs/ack.vim'
@@ -78,7 +81,11 @@ Plug 'tpope/vim-sleuth'
 "Plug 'tpope/vim-dispatch'
 
 " Display errors in code
-Plug 'scrooloose/syntastic'
+"Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
+
+"Vue syntax
+"Plug 'posva/vim-vue'
 
 " Format code automatically
 """"" Plug 'sbdchd/neoformat'
@@ -102,7 +109,7 @@ Plug 'haya14busa/incsearch.vim'
 "Plug 'SirVer/ultisnips'
 
 " A lightweight implementation of emacs's kill-ring for vim
-"Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'maxbrunsfeld/vim-yankstack'
 
 " Make terminal vim and tmux work better together.
 "Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -338,7 +345,7 @@ nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
 
 """"""" Vim Git Gutter
-set updatetime=250
+set updatetime=100
 
 
 """"""" Silver Searcher Ack settings
@@ -348,7 +355,7 @@ if executable('rg')
 endif
 
 " Synstatic Ruby Rubocop
-let g:syntastic_ruby_rubocop_exec      = 'rubocop'
+"let g:syntastic_ruby_rubocop_exec      = 'rubocop'
 "let g:syntastic_quiet_messages = 0
 
 " HardTime
@@ -364,13 +371,15 @@ map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
 " Yankring/Yankstack
-"let g:yankring_history_file = '.vim/tmp/.yankring-history'
-"let g:yankstack_map_keys = 0
-"nmap <C-P> <Plug>yankstack_substitute_older_paste
-"nmap <C-N> <Plug>yankstack_substitute_newer_paste
-"nnoremap <silent><F11> :YRShow<CR>
-" :h yankring-tutorial
-" <C-P> or <C-N> after p
+let g:yankring_history_file = '~/.vim/tmp/.yankring-history'
+let g:yankstack_map_keys = 0
+nmap <C-P> <Plug>yankstack_substitute_older_paste
+nmap <C-N> <Plug>yankstack_substitute_newer_paste
+nnoremap <silent><F11> :YRShow<CR>
+"h yankring-tutorial
+
+"h yankring-tutorial
+"<C-P> or <C-N> after p
 "
 " Easymotion
 nmap <leader><leader> <Plug>(easymotion-s)
