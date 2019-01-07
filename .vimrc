@@ -47,6 +47,9 @@ Plug 'vim-airline/vim-airline'
 
 " Show a git diff in column
 Plug 'airblade/vim-gitgutter'
+"Plug 'mhinz/vim-signify'
+" Apparently vim-signify is faster
+" but does not provide the undo/redo hunk feature...
 
 " Silver Searcher
 Plug 'mileszs/ack.vim'
@@ -82,6 +85,9 @@ Plug 'tpope/vim-sleuth'
 "
 "Asynchronous linting/fixing for Vim and Language Server Protocol (LSP) integration
 Plug 'w0rp/ale'
+
+"Vue syntax
+"Plug 'posva/vim-vue'
 
 " Format code automatically
 """"" Plug 'sbdchd/neoformat'
@@ -360,7 +366,7 @@ nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
 
 """"""" Vim Git Gutter
-set updatetime=250
+set updatetime=100
 
 
 """"""" Silver Searcher Ack settings
