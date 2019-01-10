@@ -340,6 +340,8 @@ nnoremap <leader>t :CtrlPTag<CR>
 "Keep caches between sessions - F5 to refresh
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_max_height = 25
+let g:ctrlp_max_files=0
+let g:ctrlp_max_depth=100
 
 """"""" Colorsheme solarized
 "colorscheme solarized
