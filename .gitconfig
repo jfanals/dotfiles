@@ -13,6 +13,7 @@
   new = green
 [alias]
   # add
+  logg = log --oneline --graph --color --all --decorate                           # add
   a = add                           # add
   chunkyadd = add --patch           # stage commits chunk by chunk
 
@@ -129,4 +130,4 @@
 	name = jfanals
 	email = jfanals@gmail.com
 [credential]
-	helper = cache --timeout=3600000
+	helper = cache --timeout=360000

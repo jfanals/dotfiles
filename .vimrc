@@ -298,6 +298,7 @@ set undofile
 "from https://github.com/jpalardy/dotfiles/blob/master/vim/mappings.vim
 vnoremap # :call NERDComment(1, "toggle")<CR>
 nnoremap # V:call NERDComment(1, "toggle")<CR>
+let NERDSpaceDelims=1
 
 """"""" Set Paste Toggle START
 " to remove smart intending on demand
